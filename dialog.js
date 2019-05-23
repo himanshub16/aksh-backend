@@ -37,3 +37,16 @@ module.exports = {
   makeQuery
 } 
 
+
+if (require.main === module) {
+
+  async function _inner() {
+    let res
+    res = await makeQuery('Navigate to Kurudu')
+    console.log(res)
+    res = await makeQuery('How many schools are there in a radius of 8 km?')
+    console.log(res)
+  }
+  _inner();
+
+}
