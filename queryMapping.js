@@ -41,7 +41,7 @@ const mapping = {
                 let schools = await queries.findSchoolsInRadius(distance);
                 for (let each of schools) {
                     each['showInCards'] = true
-                    color: '#fff'
+                    each['color'] = '#fff'
                 }
                 return {
                     message: `There are ${schools.length} schools in given radius.`,
@@ -56,7 +56,7 @@ const mapping = {
                 let hospitals = await queries.findHospitalsInRadius(distance);
                 for (let each of schools) {
                     each['showInCards'] = true
-                    color: '#fff'
+                    each['color'] = '#fff'
                 }
                 return {
                     message: `There are ${hospitals.length} hospitals in given radius.`,
@@ -145,11 +145,11 @@ const mapping = {
         switch (current) {
             case 'getReservoir':
                 ans = await queries.genericFind('LULC', { 'metadata.lc_code': 'WBRT' })
-                message: `Found ${ans.length} reservoirs.`
+                message = `Found ${ans.length} reservoirs.`
                 break;
             case 'getCanal':
                 ans = await queries.genericFind('LULC', { 'metadata.dscr2': 'Canal' })
-                message: `Found ${ans.length} canals.`
+                message = `Found ${ans.length} canals.`
                 break;
             case 'getAgriculture':
                 ans = await queries.genericFind('LULC', { 'metadata.lc_code': { $in: ['AGPL', 'AGCR'] } })
